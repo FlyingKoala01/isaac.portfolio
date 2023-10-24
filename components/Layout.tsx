@@ -1,32 +1,25 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React, { useRef } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-type Props = {
-  children?: ReactNode
-  title?: string
+interface LayoutProps {
+  children: React.ReactNode;
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <header>
-      <nav>
-        <Link href="/">Home</Link> | <Link href="/about">About</Link> |{' '}
-        <Link href="/users">Users List</Link> |{' '}
-        <a href="/api/users">Users API</a>
-      </nav>
-    </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
-  </div>
-)
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const mainScrollRef = useRef<HTMLElement | null>(null);
 
-export default Layout
+  return (
+    <div className="flex flex-col h-full w-full bg-white">
+      <Navbar scrollRef={mainScrollRef} />
+      <main
+        ref={mainScrollRef}
+        className="relative w-screen flex items-center flex-grow flex-col h-screen overflow-y-scroll overflow-x-hidden"
+      >
+        <div className="w-11/12 h-full md:w-full">{children}</div>
+      </main>
+    </div>
+  );
+};
+
+export default Layout;
