@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import Image from "next/image";
 import useIsMobile from "../../hooks/useIsMobile";
 import Layout from "../../components/Layout";
 import AboutIntro from "../../components/AboutIntro";
@@ -10,14 +8,14 @@ function About() {
 
   return (
     <Layout>
-      <div id="aboutDiv" className="flex flex-col bg-[#1A1A1A] w-full h-full">
+      <div id="aboutDiv" className="flex flex-col bg-[#1A1A1A] w-full">
         <div className="flex mt-20 ml-10 relative w-full h-1/6">
           <h1 className="text-white text-3xl font-bold my-auto">
             {" "}
             What should you know about me?
           </h1>
         </div>
-        <div className="relative w-full h-4/6 flex flex-row">
+        <div className="relative w-full h-4/6 flex flex-col">
           <AboutIntro />
           <AboutEngineer />
         </div>

@@ -4,21 +4,12 @@ import videoSource from "../images/video/world.mp4";
 import Layout from "../components/Layout";
 import useIsMobile from "../hooks/useIsMobile";
 import ParticleBackground from "../components/Particles";
+import dynamic from "next/dynamic";
 
 function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5; // slow down to half speed
-    }
-  }, []);
-
-  const videoFadeOut = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
 
   return (
     <Layout>
@@ -29,7 +20,6 @@ function App() {
           fields concerning technology.
         </h2>
       </div>
-      <ParticleBackground />
     </Layout>
   );
 }
