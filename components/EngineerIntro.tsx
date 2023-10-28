@@ -30,17 +30,6 @@ function EngineerIntro() {
           Throughout the years, I have studied the following programming
           languages:
         </p>
-        <ProgrammingLanguagesList />
-        <p className="text-white m-4">
-          Additionally, I have been introduced to different technologies, which
-          I have been implementing in my everyday work:
-        </p>
-        <TechnologiesList />
-        <p className="text-white m-4">
-          Furthermore, throughout my University course, I have been taught
-          different software to an introductory level:
-        </p>
-        <SoftwareList />
       </div>
     </div>
   );

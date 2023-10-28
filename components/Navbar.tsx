@@ -1,54 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import CustomLink from "./Link";
+import Image from "next/image";
 
 interface NavbarProps {
   scrollRef: any;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ scrollRef }) => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (scrollRef.current && scrollRef.current.scrollTop > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    scrollRef.current?.addEventListener("scroll", handleScroll);
-
-    // Cleanup listener when the component unmounts
-    return () => {
-      scrollRef.current?.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollRef]);
-
-  const logoVariants = {
-    large: { height: "5rem" },
-    small: { height: "4rem" },
-  };
-
-  const navVariants = {
-    transparent: { backgroundColor: "rgba(0, 0, 0, 0)" },
-    semiTransparent: { backgroundColor: "rgba(0, 0, 0, 0.6)" },
-  };
-
   return (
-    <motion.nav
-      initial="transparent"
-      animate={scrolled ? "semiTransparent" : "transparent"}
-      variants={navVariants}
-      transition={{ duration: 0.3 }}
-      className={`fixed w-full hidden md:block z-50 border-gray-200 bg-black ${
-        scrolled ? "bg-opacity-60 backdrop-blur-md" : "bg-opacity-0"
-      }`}
+    <nav
+      className={`fixed w-full h-12 z-50 border-gray-200 opacity-80 backdrop-blur-md`}
     >
-      <div className="w-full flex flex-wrap items-center justify-between p-4 bg-black">
-        <div className="hidden w-full mx-auto md:block md:w-auto">
-          <ul className="font-medium flex flex-col justify-left p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:mt-0 md:border-0">
+      <div className="w-full h-full flex items-center p-4 bg-[#f6f6f6]">
+        {" "}
+        {/* Added items-center for vertical alignment */}
+        <div className="w-1/2 flex space-x-4">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/linkedin.svg"
+              alt="LinkedIn"
+              width={20}
+              height={20}
+            />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/instagram.svg"
+              alt="Instagram"
+              width={20}
+              height={20}
+            />
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/github.svg"
+              alt="Github"
+              width={20}
+              height={20}
+            />
+          </a>
+        </div>
+        <div className="w-1/2">
+          <ul className="font-medium flex flex-row justify-end border border-gray-100 rounded-lg">
             <CustomLink to="/">Home</CustomLink>
             <CustomLink to="/about">About</CustomLink>
             <CustomLink to="/services">Services</CustomLink>
@@ -56,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollRef }) => {
           </ul>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
