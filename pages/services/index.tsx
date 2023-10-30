@@ -15,7 +15,7 @@ function Service() {
         className="flex flex-col bg-[#1A1A1A] w-full  min-h-screen"
       >
         <div className="flex mt-20 ml-10 relative w-full">
-          <h1 className="text-white text-3xl font-bold my-auto">
+          <h1 className="text-white text-5xl font-bold my-auto">
             Take a look at the services catalogue
           </h1>
         </div>

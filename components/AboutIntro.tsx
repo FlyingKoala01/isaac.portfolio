@@ -3,7 +3,7 @@ import World from "./World";
 
 function AboutIntro() {
   return (
-    <div className="flex flex-row justify-between relative w-[90%] h-full mx-auto m-5">
+    <div className="flex flex-row justify-between relative w-[90%] h-full mx-auto m-4">
       <div className="flex flex-col justify-center items-center w-1/2 p-2">
         <p className="text-white mb-4">
           Raised in a <b>bilingual</b> family, spending most of my childhood

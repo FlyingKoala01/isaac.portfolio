@@ -9,13 +9,13 @@ function About() {
   return (
     <Layout>
       <div id="aboutDiv" className="flex flex-col bg-[#1A1A1A] w-full">
-        <div className="flex mt-20 ml-10 relative w-full h-1/6">
-          <h1 className="text-white text-3xl font-bold my-auto">
+        <div className="flex mt-24 ml-20 relative w-full h-1/6">
+          <h1 className="text-white text-5xl font-bold my-auto">
             {" "}
             What should you know about me?
           </h1>
         </div>
-        <div className="relative w-full h-4/6 flex flex-col">
+        <div className="relative w-full h-5/6 flex flex-col">
           <AboutIntro />
           <AboutEngineer />
         </div>
